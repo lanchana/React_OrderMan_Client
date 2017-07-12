@@ -23,7 +23,8 @@
     "no-alert": "off",
     "no-underscore-dangle": "off",
     "react/forbid-prop-types": "off",
-    "react/prefer-stateless-function": "off"
+    "react/prefer-stateless-function": "off",
+    "no-trailing-spaces": "off"
   },
   "globals": {
     "window": true

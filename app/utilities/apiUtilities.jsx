@@ -40,7 +40,8 @@ export const getHeaders = () => {
 };
 
 
-export const BASE_URL = process.env.API_BASE;
+export const BASE_URL = process.env.API_BASE ||
+  'https://react-orderman-api.herokuapp.com';
 
 
 const baseError = {

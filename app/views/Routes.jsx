@@ -17,10 +17,12 @@ import {
 
 
 // Component imports
-import CustomersContainer from './Customers/CustomersContainer';
+import CustomersIndexContainer from './Customers/Index/CustomersIndexContainer';
+import CustomersShowContainer from './Customers/Show/CustomersShowContainer';
+import CustomersCreateContainer from './Customers/Create/CustomersCreateContainer';
+import UnauthenticatedContainer from './Unauthenticated/UnauthenticatedContainer';
 import notProtectedHOC from './common/hoc/notProtected';
 import protectedHOC from './common/hoc/protected';
-import UnauthenticatedContainer from './Unauthenticated/UnauthenticatedContainer';
 
 
 // Redux imports
@@ -48,8 +50,18 @@ export default class Routes extends Component {
         <ConnectedRouter history={history}>
           <Switch>
             <Route
+              exact
+              path="/customers/create"
+              component={protectedHOC(CustomersCreateContainer)}
+            />
+            <Route
+              exact
+              path="/customers/:id"
+              component={protectedHOC(CustomersShowContainer)}
+            />
+            <Route
               path="/customers"
-              component={protectedHOC(CustomersContainer)}
+              component={protectedHOC(CustomersIndexContainer)}
             />
             <Route
               path="/"

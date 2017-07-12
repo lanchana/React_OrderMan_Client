@@ -5,30 +5,20 @@
 
 
 // Module imports
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 
 /**
- * @class NavbarLink
+ * @const NavbarLink
  * @description A link that sits in the Navbar to route to different pages
  */
-export default class NavbarLink extends Component {
-  render() {
-    const {
-      path,
-      pathname,
-      title,
-    } = this.props;
-
-    return (
-      <li className={pathname === path ? 'active' : ''}>
-        <Link to={path}>{title}</Link>
-      </li>
-    );
-  }
-}
+const NavbarLink = props => (
+  <li className={props.pathname === props.path ? 'active' : ''}>
+    <Link to={props.path}>{props.title}</Link>
+  </li>
+);
 
 
 NavbarLink.propTypes = {
@@ -39,3 +29,6 @@ NavbarLink.propTypes = {
 
 
 NavbarLink.defaultProps = {};
+
+
+export default NavbarLink;

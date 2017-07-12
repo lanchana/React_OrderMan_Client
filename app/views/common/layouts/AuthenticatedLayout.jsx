@@ -5,7 +5,7 @@
 
 
 // Module Imports
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 
@@ -19,33 +19,20 @@ import PageTitle from '../titles/PageTitle';
  * @class UnauthenticatedLayout
  * @description A reusable layout for your authenticated pages like Customers and Orders
  */
-export default class AuthenticatedLayout extends Component {
-  render() {
-    const {
-      children,
-      showBackButton,
-      pageTitle,
-    } = this.props;
-
-    return (
-      <div>
-        <Navbar />
-        <div className="container-fluid">
-          <div className="col-xs-12 col-md-10 col-md-offset-1">
-            {(() => showBackButton && <BackButton />)()}
-            <PageTitle
-              showBackLink={showBackButton}
-              title={pageTitle}
-            />
-          </div>
-          <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
-            {children}
-          </div>
-        </div>
+const AuthenticatedLayout = props => (
+  <div>
+    <Navbar />
+    <div className="container-fluid">
+      <div className="col-xs-12 col-md-10 col-md-offset-1">
+        {(() => props.showBackButton && <BackButton />)()}
+        <PageTitle title={props.pageTitle} />
       </div>
-    );
-  }
-}
+      <div className="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+        {props.children}
+      </div>
+    </div>
+  </div>
+);
 
 
 AuthenticatedLayout.propTypes = {
@@ -58,3 +45,6 @@ AuthenticatedLayout.propTypes = {
 AuthenticatedLayout.defaultProps = {
   showBackButton: false,
 };
+
+
+export default AuthenticatedLayout;

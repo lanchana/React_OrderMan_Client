@@ -6,28 +6,17 @@
 
 // Module imports
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 
 // Component imports
 import AuthenticatedLayout from '../../common/layouts/AuthenticatedLayout';
-import CustomerDetailsForm from './components/CustomerDetailsForm';
 
 
 // Actions imports
-import {
-  performRetrieveCustomer,
-  performUpdateCustomer,
-} from './actions/customersShowActions';
 
 
 // PropTypes imports
-import {
-  CustomersShowPropType,
-  MatchPropType,
-  ReduxFormPropType,
-} from '../../../customPropTypes';
 
 
 /**
@@ -45,7 +34,7 @@ class CustomersShowContainer extends Component {
      * @param id
      */
     this.retrieveCustomer = (id) => {
-      this.props.performRetrieveCustomer(id);
+      alert(id);
     };
 
 
@@ -56,85 +45,37 @@ class CustomersShowContainer extends Component {
      */
     this.handleSubmit = (e) => {
       e.preventDefault();
-      const { values } = this.props.customerDetailsForm;
-      this.props.performUpdateCustomer(this.props.match.params.id, values);
     };
   }
 
 
-  componentWillMount() {
-    this.retrieveCustomer(this.props.match.params.id);
-  }
+  componentWillMount() {}
 
 
   render() {
-    const {
-      customersShow: {
-        isFetching,
-        customer,
-      },
-    } = this.props;
-
-    const customerName = customer.first_name ?
-      `${customer.first_name} ${customer.last_name}` :
-      '';
-
     return (
       <AuthenticatedLayout
         showBackButton
-        pageTitle={`Customer Details: ${customerName}`}
+        pageTitle="CustomerShow: NAME_HERE"
       >
-        <div>
-          <br />
-          {(() => {
-            if (isFetching) {
-              return <h4 className="text-center">Loading Customer...</h4>;
-            }
-            return (
-              <div>
-                <CustomerDetailsForm
-                  handleSubmit={this.handleSubmit}
-                  initialValues={{
-                    first_name: customer.first_name,
-                    last_name: customer.last_name,
-                    email: customer.email,
-                  }}
-                />
-                <div className="spacer" />
-              </div>
-            );
-          })()}
-        </div>
+        <h3>Children of CustomersShow</h3>
       </AuthenticatedLayout>
     );
   }
 }
 
 
-CustomersShowContainer.propTypes = {
-  customersShow: CustomersShowPropType.isRequired,
-  match: MatchPropType.isRequired,
-  performRetrieveCustomer: PropTypes.func.isRequired,
-  performUpdateCustomer: PropTypes.func.isRequired,
-  customerDetailsForm: ReduxFormPropType,
-};
+CustomersShowContainer.propTypes = {};
 
 
-CustomersShowContainer.defaultProps = {
-  customerDetailsForm: {},
-};
+CustomersShowContainer.defaultProps = {};
 
 
-const mapStateToProps = state => ({
-  customersShow: state.customersShow,
-  customerDetailsForm: state.form.customerDetailsForm,
-});
+// const mapStateToProps = state => ({});
+const mapStateToProps = () => ({});
 
 
-const mapDispatchToProps = () => ({
-  performRetrieveCustomer,
-  performUpdateCustomer,
-});
+const mapDispatchToProps = () => ({});
 
 
 export default connect(mapStateToProps, mapDispatchToProps())(CustomersShowContainer);

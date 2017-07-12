@@ -5,7 +5,7 @@
 
 
 // Module imports
-import React, { Component } from 'react';
+import React from 'react';
 import logoImage from '../../../assets/logo.png';
 
 
@@ -13,15 +13,14 @@ import logoImage from '../../../assets/logo.png';
  * @class Logo
  * @description Renders a Bootstrap responsive image
  */
-export default class Logo extends Component {
-  render() {
-    return (
-      <img
-        src={logoImage}
-        alt="TalkRise OrderMan"
-        className="img"
-        width="150"
-      />
-    );
-  }
-}
+const Logo = () => (
+  <img
+    src={logoImage}
+    alt="TalkRise OrderMan"
+    className="img"
+    width="150"
+  />
+);
+
+
+export default Logo;
