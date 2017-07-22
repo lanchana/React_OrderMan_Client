@@ -16,3 +16,25 @@
  *
  * @exports OrdersShowContainer
  */
+
+import React, { Component } from 'react';
+import propTypes from 'prop-types';
+import { connect } from ' react-redux ';
+
+class OrdersShowContainer extends Component {
+  render() {
+    return(
+      <div />;
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+
+});
+
+const mapDispatchProps = () => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchProps())(OrdersShowContainer);

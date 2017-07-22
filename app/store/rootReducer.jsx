@@ -15,6 +15,8 @@ import customersCreateReducer from '../views/Customers/Create/reducers/customers
 import customersIndexReducer from '../views/Customers/Index/reducers/customersIndexReducers';
 import customersShowReducer from '../views/Customers/Show/reducers/customersShowReducer';
 import loginReducer from '../views/Unauthenticated/reducers/loginReducer';
+import ordersCreateReducer from '../views/Orders/Create/reducers/ordersCreateReducer';
+import ordersIndexReducer from '../views/Orders/Index/reducers/ordersIndexReducer';
 import signupReducer from '../views/Unauthenticated/reducers/signupReducer';
 
 
@@ -25,6 +27,8 @@ const appReducer = combineReducers({
   customersShow: customersShowReducer,
   form: formReducer,
   login: loginReducer,
+  ordersCreate: ordersCreateReducer,
+  ordersIndex: ordersIndexReducer,
   routing: routerReducer,
   signup: signupReducer,
 });

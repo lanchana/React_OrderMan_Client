@@ -58,7 +58,7 @@ function entry() {
     'webpack-dev-server/client?http://localhost:8080',
     './app/boot.jsx',
   ];
-};
+}
 
 
 function exports() {
@@ -118,8 +118,8 @@ function exports() {
           loader: 'source-map-loader',
           test: /\.js$/,
         },
-      ]
-    }
+      ],
+    },
   };
 
   // Adding devServer props if not running production build
@@ -134,7 +134,7 @@ function exports() {
   }
 
   return definedExports;
-};
+}
 
 
 module.exports = exports();

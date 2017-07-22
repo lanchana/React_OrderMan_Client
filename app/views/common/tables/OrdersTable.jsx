@@ -103,7 +103,7 @@ export default class OrdersTable extends Component {
 
 
 OrdersTable.propTypes = {
-  orders: PropTypes.arrayOf(OrderPropType).isRequired,
+  orders: PropTypes.any.isRequired,
   pagination: PaginationPropType.isRequired,
   handlePageChange: PropTypes.func.isRequired,
 };
