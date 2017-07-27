@@ -76,11 +76,11 @@
     }
 
     if(!values.status) {
-        errors.status = 'Required'
+        errors.status = "Required";
     }
 
     if(!values.description) {
-        errors.description = 'Required'
+        errors.description = "Required";
     }
 
     return errors;

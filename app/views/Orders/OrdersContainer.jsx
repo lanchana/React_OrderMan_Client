@@ -25,6 +25,7 @@ import { Route, Switch } from 'react-router-dom';
 // Component imports
 import OrdersCreateContainer from './Create/OrdersCreateContainer';
 import OrdersIndexContainer from './Index/OrdersIndexContainer';
+import OrdersShowContainer from "./Show/OrdersShowContainer";
 // import OrdersShowContainer from './Show/OrdersShowContainer';
 
 export default class OrdersContainer extends Component {
@@ -38,9 +39,15 @@ export default class OrdersContainer extends Component {
         />
         <Route
           exact
+          path="/orders/:id"
+          component={OrdersShowContainer}
+        />
+        <Route
+          exact
           path="/orders"
           component={OrdersIndexContainer}
         />
+
       </Switch>
     );
   }

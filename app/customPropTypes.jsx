@@ -69,6 +69,12 @@ export const LocationPropType = PropTypes.shape({
   hash: PropTypes.string.isRequired,
 });
 
+export const OrdersShowPropType = PropTypes.shape({
+  isFetching: PropTypes.bool.isRequired,
+  order: CustomerPropType,
+  error: ErrorPropType,
+});
+
 
 export const MatchPropType = PropTypes.shape({
   isExact: PropTypes.bool.isRequired,
